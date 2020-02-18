@@ -10,7 +10,7 @@
 
 ![Kapture 2019-06-25 at 10 14 51](https://user-images.githubusercontent.com/1479100/60064224-50b97080-9732-11e9-8023-431fc6fe81a5.gif)
 
-## Installation
+## 安装
 
 ```shell
 composer require dcat-admin-extension/grid-sortable -vvv
@@ -50,7 +50,7 @@ $grid->sortable();
 
 ## 翻译
 
-在对应的语言种类文件夹下的`global.php`中可以修改按钮文本，以简体中文为例：翻译文件是`resources/lang/zh-CN.json`：
+在对应的语言种类文件夹下的`global.php`中可以修改按钮文本，以简体中文为例：翻译文件是`resources/lang/zh-CN.json`
 ```php
 return [
     'fields' => [...],
