@@ -7,10 +7,6 @@ use Dcat\Admin\Grid\Displayers\AbstractDisplayer;
 
 class SortableDisplay extends AbstractDisplayer
 {
-    protected static $js = [
-        'vendor/dcat-admin-extensions/grid-sortable/jquery-ui.min.js'
-    ];
-
     protected function script()
     {
         $id = $this->grid->tableId();
