@@ -30,8 +30,6 @@ class GridSortableServiceProvider extends ServiceProvider
             $extension->routes(__DIR__.'/../routes/web.php');
         });
 
-        Admin::headerJs('vendor/dcat-admin-extensions/grid-sortable/jquery-ui.min.js');
-
         $extension->boot();
     }
 }

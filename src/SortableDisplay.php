@@ -7,26 +7,28 @@ use Dcat\Admin\Grid\Displayers\AbstractDisplayer;
 
 class SortableDisplay extends AbstractDisplayer
 {
+    protected static $js = [
+        'vendor/dcat-admin-extensions/grid-sortable/sortable.min.js',
+    ];
+
     protected function script()
     {
         $id = $this->grid->tableId();
 
         $script = <<<JS
-$("#{$id} tbody").sortable({
-    placeholder: "sort-highlight",
-    handle: ".grid-sortable-handle",
-    forcePlaceholderSize: true,
-    zIndex: 999999
-}).on("sortupdate", function(event, ui) {
-
-    var sorts = [];
-    $(this).find('.grid-sortable-handle').each(function () {
-        sorts.push($(this).data());
-    });
-    
-    $('#{$id}').closest('.row').first().find('.grid-save-order-btn').data('sort', sorts).show();
+new Sortable($("#{$id} tbody")[0], {
+    handle: '.grid-sortable-handle', // handle's class
+    animation: 150,
+    onUpdate: function () {
+        var sorts = [], tb = $('#{$id}');
+        tb.find('.grid-sortable-handle').each(function () {
+            sorts.push($(this).data());
+        });
+        tb.closest('.row').first().find('.grid-save-order-btn').data('sort', sorts).show();
+    },
 });
 JS;
+
         Admin::script($script);
     }
 
