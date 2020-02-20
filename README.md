@@ -5,7 +5,7 @@
 
 </div>
 
-这个插件可以帮助你通过拖动数据列表的行来进行排序，前端基于[jQueryUI sortable](https://jqueryui.com/sortable/), 后端基于[eloquent-sortable](https://github.com/spatie/eloquent-sortable)。
+这个插件可以帮助你通过拖动数据列表的行来进行排序，前端基于[SortableJS](https://github.com/SortableJS/Sortable), 后端基于[eloquent-sortable](https://github.com/spatie/eloquent-sortable)。
 
 
 ![sortable](https://raw.githubusercontent.com/jqhph/dcat-admin-grid-sortable/docs/img/grid-sortable.png)
