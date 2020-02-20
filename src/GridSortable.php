@@ -13,7 +13,7 @@ class GridSortable extends Extension
 
     protected $assets = __DIR__.'/../resources/assets';
 
-    protected $composerJson = __DIR__.'/../composer.json';
+    protected $composer = __DIR__.'/../composer.json';
 
     protected $column = '__sortable__';
 
