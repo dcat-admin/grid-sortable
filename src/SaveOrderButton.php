@@ -23,7 +23,7 @@ class SaveOrderButton extends AbstractTool
         $script = <<<JS
 $('.grid-save-order-btn').click(function () {
     $.post('{$route}', {
-        _token: LA.token,
+        _token: Dcat.token,
         _model: '{$class}',
         _sort: $(this).data('sort'),
         _column: '{$this->sortColumn}',
@@ -31,10 +31,10 @@ $('.grid-save-order-btn').click(function () {
     function(data){
     
         if (data.status) {
-            LA.success(data.message);
-            LA.reload();
+            Dcat.success(data.message);
+            Dcat.reload();
         } else {
-            LA.error(data.message);
+            Dcat.error(data.message);
         }
     });
 });
