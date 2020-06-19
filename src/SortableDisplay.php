@@ -13,7 +13,7 @@ class SortableDisplay extends AbstractDisplayer
 
     protected function script()
     {
-        $id = $this->grid->tableId();
+        $id = $this->grid->getTableId();
 
         $script = <<<JS
 new Sortable($("#{$id} tbody")[0], {
