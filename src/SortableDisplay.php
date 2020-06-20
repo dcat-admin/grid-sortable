@@ -41,7 +41,7 @@ JS;
     {
         $this->script();
 
-        $key  = $this->key();
+        $key  = $this->getKey();
         $sort = $this->getRowSort($sortName);
 
         return <<<HTML
