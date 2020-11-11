@@ -55,7 +55,7 @@ JS;
         $text = admin_trans_label('Save order');
 
         return <<<HTML
-<button type="button" class="btn btn-sm btn-custom grid-save-order-btn" style="margin-left:8px;display:none;">
+<button type="button" class="btn btn-primary grid-refresh grid-save-order-btn" style="margin-left:8px;display:none;">
     <i class="fa fa-save"></i><span class="hidden-xs">&nbsp;&nbsp;{$text}</span>
 </button>
 HTML;
