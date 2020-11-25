@@ -23,7 +23,15 @@ class GridSortableServiceProvider extends ServiceProvider
 
         $column = $this->column;
 
-        Grid::macro('sortable', function ($sortName = 'order') use ($column) {
+        Grid::macro('sortable', function ($sortName = null) use ($column) {
+            if ($sortName === null) {
+                if (isset($this->model()->repository()->model()->sortable['order_column_name'])) {
+                    $sortName = $this->model()->repository()->model()->sortable['order_column_name'];
+                } else {
+                    $sortName = 'order';
+                }
+            }
+
             /* @var $this Grid */
             $this->tools(new SaveOrderButton($sortName));
 
