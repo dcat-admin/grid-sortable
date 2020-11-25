@@ -2,10 +2,9 @@
 
 namespace Dcat\Admin\Extension\GridSortable\Http\Controllers;
 
-use Dcat\Admin\Admin;
 use Dcat\Admin\Form;
-use Illuminate\Routing\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Controller;
 
 class GridSortableController extends Controller
 {
@@ -31,7 +30,6 @@ class GridSortableController extends Controller
 
                 $form->update($k, [$column => $v]);
             });
-
         } catch (\Exception $exception) {
             $status  = false;
             $message = $exception->getMessage();

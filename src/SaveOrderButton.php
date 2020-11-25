@@ -17,24 +17,21 @@ class SaveOrderButton extends AbstractTool
     protected function script()
     {
         $route = admin_base_path('extension/grid-sort');
-        $repository = $this->parent->model()->repository();
-        if (method_exists($repository, 'getOriginalClassName')) {
-            $class = $repository->getOriginalClassName();
-        } else {
-            $class = get_class($repository);
-        }
+        $class = get_class($this->parent->model()->repository()->model());
         $class = str_replace('\\', '\\\\', $class);
 
         $script = <<<JS
 $('.grid-save-order-btn').click(function () {
-    $.post('{$route}', {
-        _token: Dcat.token,
-        _model: '{$class}',
-        _sort: $(this).data('sort'),
-        _column: '{$this->sortColumn}',
-    },
-    function(data){
-    
+    $.ajax({
+        method: 'POST',
+        url: '{$route}',
+        data: {
+            _token: Dcat.token,
+            _model: '{$class}',
+            _sort: $(this).data('sort'),
+            _column: '{$this->sortColumn}',
+        }
+    }).done(function(data){
         if (data.status) {
             Dcat.success(data.message);
             Dcat.reload();
@@ -43,7 +40,7 @@ $('.grid-save-order-btn').click(function () {
         }
     });
 });
-    
+
 JS;
         Admin::script($script);
     }
@@ -61,4 +58,3 @@ JS;
 HTML;
     }
 }
-

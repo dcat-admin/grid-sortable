@@ -8,7 +8,7 @@ use Dcat\Admin\Grid\Displayers\AbstractDisplayer;
 class SortableDisplay extends AbstractDisplayer
 {
     protected static $js = [
-        'vendors/dcat-admin-extensions/grid-sortable/sortable.min.js',
+        '@dcat-admin-extension.grid-sortable',
     ];
 
     protected function script()
@@ -45,7 +45,7 @@ JS;
         $sort = $this->getRowSort($sortName);
 
         return <<<HTML
-<a class="grid-sortable-handle" style="cursor:move;" data-key="{$key}" data-sort="{$sort}">
+<a class="grid-sortable-handle" style="cursor:move;white-space:nowrap;" data-key="{$key}" data-sort="{$sort}">
    <i class="fa fa-ellipsis-v"></i>
    <i class="fa fa-ellipsis-v"></i>
 </a>
